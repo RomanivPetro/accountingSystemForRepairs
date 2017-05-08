@@ -9,6 +9,8 @@ Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "Database", "Database\Databa
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Entities", "Entities\Entities.csproj", "{6C2311E2-F7DF-45EE-B71A-469FB9DB132E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DALayer", "DALayer\DALayer.csproj", "{55900C89-DB6F-4B15-ACBC-1B70E8C19F55}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -29,6 +31,10 @@ Global
 		{6C2311E2-F7DF-45EE-B71A-469FB9DB132E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6C2311E2-F7DF-45EE-B71A-469FB9DB132E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6C2311E2-F7DF-45EE-B71A-469FB9DB132E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{55900C89-DB6F-4B15-ACBC-1B70E8C19F55}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{55900C89-DB6F-4B15-ACBC-1B70E8C19F55}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{55900C89-DB6F-4B15-ACBC-1B70E8C19F55}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{55900C89-DB6F-4B15-ACBC-1B70E8C19F55}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
