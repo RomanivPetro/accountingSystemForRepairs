@@ -27,8 +27,10 @@ namespace DALayer.Repositories
             }
             password = HashPassword(password);
 
-            var admin = context.Administrator.Where(a => a.Login == userName).FirstOrDefault();
-            if(admin != null)
+            var admin = (from a in context.Administrator
+                         where a.Login == userName
+                         select a).FirstOrDefault();
+            if (admin != null)
             {
                 return password == admin.Password;
             }
