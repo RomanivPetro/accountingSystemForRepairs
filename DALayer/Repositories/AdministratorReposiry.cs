@@ -18,12 +18,50 @@ namespace DALayer.Repositories
         {
             this.context = context;
         }
-        //TODO: finish this
+
         public bool Login(string userName, string password)
+        {
+            if(string.IsNullOrEmpty(userName) || string.IsNullOrEmpty(password))
+            {
+                throw new ArgumentException("Arguments cannot be null or empty");
+            }
+            password = HashPassword(password);
+
+            var admin = context.Administrator.Where(a => a.Login == userName).FirstOrDefault();
+            if(admin != null)
+            {
+                return password == admin.Password;
+            }
+            return false;
+        }
+
+        private string HashPassword(string password)
         {
             MD5 md5 = new MD5CryptoServiceProvider();
             md5.ComputeHash(Encoding.Unicode.GetBytes(password));
-            return true;
+
+            byte[] result = md5.Hash;
+            StringBuilder strBuilder = new StringBuilder();
+            for (int i = 0; i < result.Length; i++)
+            {
+                strBuilder.Append(result[i].ToString("x2"));
+            }
+            return strBuilder.ToString();
+        }
+
+        public void Add(Administrator admin)
+        {
+            if (admin == null)
+            {
+                throw new ArgumentNullException("admin cannot be null");
+            }
+            if (string.IsNullOrEmpty(admin.Login) || string.IsNullOrEmpty(admin.Password))
+            {
+                throw new ArgumentException("Login and Password cannot be null or empty");
+            }
+            admin.Password = HashPassword(admin.Password);
+            context.Administrator.Add(admin);
+            context.SaveChanges();
         }
 
         #region IDisposable Support
