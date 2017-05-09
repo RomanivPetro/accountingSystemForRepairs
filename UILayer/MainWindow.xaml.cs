@@ -25,8 +25,9 @@ namespace UILayer
             {
                 if (unitOfWork.AdministratorRepository.Login(userName, password))
                 {
-                    //TODO: run another window
-                    MessageBox.Show("success");
+                    AppWindow appWin = new AppWindow();
+                    appWin.Show();
+                    Close();
                 }
                 else
                 {
