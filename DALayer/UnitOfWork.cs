@@ -13,6 +13,7 @@ namespace DALayer
     {
         private AccountingContext context = new AccountingContext();
         private AdministratorReposiry adminRepository;
+        private OrderRepository orderRepository;
 
         public IAdministratorRepository AdministratorRepository
         {
@@ -23,6 +24,18 @@ namespace DALayer
                     adminRepository = new AdministratorReposiry(context);
                 }
                 return adminRepository;
+            }
+        }
+
+        public IOrderRepository OrderRepository
+        {
+            get
+            {
+                if(orderRepository == null)
+                {
+                    orderRepository = new OrderRepository(context);
+                }
+                return orderRepository;
             }
         }
 
