@@ -111,5 +111,6 @@
   <ItemGroup>
     <None Include="CREATE.sql" />
     <None Include="DROP.sql" />
+    <None Include="INSERT.sql" />
   </ItemGroup>
 </Project>
