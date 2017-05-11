@@ -1,8 +1,10 @@
 ﻿using DALayer;
 using Entities;
 using System;
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.Diagnostics;
+using System.Linq;
 using System.Windows;
 using System.Windows.Input;
 using UILayer.Commands;
@@ -14,6 +16,8 @@ namespace UILayer.ViewModels
         private UnitOfWork unitOfWork;
         private Order order;
         private ICommand addOrderCommand;
+        private IEnumerable<Worker> workers;
+        private IEnumerable<Worker> selectedWorkers;
 
         public event PropertyChangedEventHandler PropertyChanged;
 
@@ -24,6 +28,7 @@ namespace UILayer.ViewModels
             {
                 ReceptionDate = DateTime.Today.Date
             };
+            workers = unitOfWork.WorkerRepository.GetWorkers();
             addOrderCommand = new AddCommand(() => true, AddOrder);
         }
 
@@ -31,6 +36,7 @@ namespace UILayer.ViewModels
         {
             try
             {
+                order.Worker = selectedWorkers.ToList();
                 unitOfWork.OrderRepository.AddOrder(order);
             }
             catch (Exception ex)
@@ -103,6 +109,17 @@ namespace UILayer.ViewModels
         {
             get => order.Note;
             set => order.Note = value;
+        }
+
+        public IEnumerable<Worker> Workers
+        {
+            get => workers;
+        }
+
+        public IEnumerable<Worker> SelectedWorkers
+        {
+            //get => workers.Take(1).ToList();
+            set => selectedWorkers = value;
         }
         #endregion
     }

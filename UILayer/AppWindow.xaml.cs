@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Entities;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -22,6 +23,12 @@ namespace UILayer
         public AppWindow()
         {
             InitializeComponent();
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            ViewModels.AddOrderViewModel viewModel = AddOrderGrid.DataContext as ViewModels.AddOrderViewModel;
+            viewModel.SelectedWorkers = WorkersListBox.SelectedItems as List<Worker>;
         }
     }
 }

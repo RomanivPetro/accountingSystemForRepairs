@@ -6,22 +6,22 @@
         xmlns:local="clr-namespace:UILayer"
         xmlns:ViewModels="clr-namespace:UILayer.ViewModels"
         mc:Ignorable="d"
-        Title="AppWindow" Height="368.041" Width="705.155">
+        Title="AppWindow" Height="416.041" Width="705.155">
     <Grid>
-        <TabControl HorizontalAlignment="Left" Height="327" VerticalAlignment="Top" Width="697">
+        <TabControl HorizontalAlignment="Left" Height="375" VerticalAlignment="Top" Width="697">
             <TabItem Header="Add order">
-                <Grid Background="#FFE5E5E5">
+                <Grid x:Name="AddOrderGrid" Background="#FFE5E5E5">
                     <Grid.DataContext>
                         <ViewModels:AddOrderViewModel/>
                     </Grid.DataContext>
                     <Label Content="Customer Name" HorizontalAlignment="Left" Margin="36,33,0,0" VerticalAlignment="Top"/>
-                    <TextBox HorizontalAlignment="Left" Height="23" Margin="157,37,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" SpellCheck.IsEnabled="True" Text="{Binding CustomerName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                    <TextBox HorizontalAlignment="Left" Height="23" Margin="157,37,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" SpellCheck.IsEnabled="True" Text="{Binding CustomerName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" MaxLength="50"/>
                     <Label Content="Phone number" HorizontalAlignment="Left" Margin="48,80,0,0" VerticalAlignment="Top"/>
-                    <TextBox HorizontalAlignment="Left" Height="23" Margin="157,80,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Text="{Binding PhoneNumber}"/>
+                    <TextBox HorizontalAlignment="Left" Height="23" Margin="157,80,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Text="{Binding PhoneNumber}" MaxLength="13"/>
                     <Label Content="Email *" HorizontalAlignment="Left" Margin="48,127,0,0" VerticalAlignment="Top"/>
-                    <TextBox HorizontalAlignment="Left" Height="23" Margin="157,127,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Text="{Binding Email}"/>
+                    <TextBox HorizontalAlignment="Left" Height="23" Margin="157,127,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Text="{Binding Email}" MaxLength="30"/>
                     <Label Content="Device" HorizontalAlignment="Left" Margin="48,170,0,0" VerticalAlignment="Top"/>
-                    <TextBox HorizontalAlignment="Left" Height="23" Margin="157,170,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Text="{Binding Device}"/>
+                    <TextBox HorizontalAlignment="Left" Height="23" Margin="157,170,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Text="{Binding Device}" MaxLength="30"/>
                     <Label Content="Cost" HorizontalAlignment="Left" Margin="48,214,0,0" VerticalAlignment="Top"/>
                     <TextBox HorizontalAlignment="Left" Height="23" Margin="157,214,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Text="{Binding Cost, StringFormat=\{0:F\}}"/>
                     <Label Content="Income" HorizontalAlignment="Left" Margin="48,263,0,0" VerticalAlignment="Top"/>
@@ -29,10 +29,12 @@
                     <Label Content="Reception date" HorizontalAlignment="Left" Margin="360,37,0,0" VerticalAlignment="Top"/>
                     <DatePicker HorizontalAlignment="Left" Height="22" Margin="466,37,0,0" VerticalAlignment="Top" Width="101" DisplayDate="{Binding ReceptionDate.Date, Mode=OneWay, StringFormat=\{0:d\}}"/>
                     <Label Content="Problem" HorizontalAlignment="Left" Margin="360,77,0,0" VerticalAlignment="Top"/>
-                    <Label Content="Note *" HorizontalAlignment="Left" Margin="360,167,0,0" VerticalAlignment="Top"/>
-                    <Button Content="Add" HorizontalAlignment="Left" Margin="360,262,0,0" VerticalAlignment="Top" Width="95" Command="{Binding AddOrderCommand, Mode=OneWay}"/>
-                    <TextBox HorizontalAlignment="Left" Height="73" Margin="466,80,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="215" Text="{Binding Problem}"/>
-                    <TextBox HorizontalAlignment="Left" Height="67" Margin="466,170,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="215" Text="{Binding Note}"/>
+                    <Label Content="Note *" HorizontalAlignment="Left" Margin="360,152,0,0" VerticalAlignment="Top"/>
+                    <Button Content="Add" HorizontalAlignment="Left" Margin="272,317,0,0" VerticalAlignment="Top" Width="94" Command="{Binding AddOrderCommand, Mode=OneWay}" Click="Button_Click"/>
+                    <TextBox HorizontalAlignment="Left" Height="52" Margin="466,80,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="215" Text="{Binding Problem}" MaxLength="500"/>
+                    <TextBox HorizontalAlignment="Left" Height="44" Margin="466,152,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="215" Text="{Binding Note}" MaxLength="100"/>
+                    <Label Content="Choose worker" HorizontalAlignment="Left" Margin="360,219,0,0" VerticalAlignment="Top"/>
+                    <ListBox x:Name="WorkersListBox" HorizontalAlignment="Left" Height="70" Margin="467,219,0,0" VerticalAlignment="Top" Width="214" SelectionMode="Multiple" ItemsSource="{Binding Workers}" DisplayMemberPath=".Name"/>
 
                 </Grid>
             </TabItem>
