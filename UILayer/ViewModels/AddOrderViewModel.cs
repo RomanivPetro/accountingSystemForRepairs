@@ -22,9 +22,9 @@ namespace UILayer.ViewModels
             unitOfWork = new UnitOfWork();
             order = new Order()
             {
-                ReceptionDate = DateTime.Now
+                ReceptionDate = DateTime.Today.Date
             };
-            addOrderCommand = new AddOrderCommand(() => true, AddOrder);
+            addOrderCommand = new AddCommand(() => true, AddOrder);
         }
 
         private void AddOrder()

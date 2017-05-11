@@ -36,8 +36,41 @@
 
                 </Grid>
             </TabItem>
-            <TabItem Header="TabItem" Margin="0,-2,0,0">
-                <Grid Background="#FFE5E5E5"/>
+            <TabItem Header="Workers" Margin="0,-2,0,0">
+                <Grid Background="#FFE5E5E5">
+                    <Grid.DataContext>
+                        <ViewModels:WorkerViewModel/>
+                    </Grid.DataContext>
+                    <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="100" Margin="10,10,0,0" VerticalAlignment="Top" Width="274" CornerRadius="25">
+                        <Grid>
+                            <Label Content="Worker name" Margin="10,31,181,43"/>
+                            <TextBox Margin="98,28,28,43" Text="{Binding NewWorkerName, UpdateSourceTrigger=PropertyChanged}" MaxLines="1" MaxLength="50" />
+                            <Button Content="Add worker" Margin="69,65,112,10" Command="{Binding AddWorkerCommand, Mode=OneWay}"/>
+                        </Grid>
+                    </Border>
+                    <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="100" Margin="307,10,0,0" VerticalAlignment="Top" Width="361" CornerRadius="25">
+                        <Grid>
+                            <Label Content="Select Worker" HorizontalAlignment="Left" Margin="10,35,0,0" VerticalAlignment="Top"/>
+                            <ListBox HorizontalAlignment="Left" Height="98" Margin="111,0,0,0" VerticalAlignment="Top" Width="214" ItemsSource="{Binding Workers}" SelectedItem="{Binding SelectedWorker}" DisplayMemberPath=".Name"/>
+                        </Grid>
+                    </Border>
+                    <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="159" Margin="10,130,0,0" VerticalAlignment="Top" Width="658" CornerRadius="25">
+                        <Grid>
+                            <Label Content="{Binding SelectedWorker.Name}" HorizontalAlignment="Left" Margin="183,10,5,0" VerticalAlignment="Top" Width="66" HorizontalContentAlignment="Stretch"/>
+                            <Label Content="information" HorizontalAlignment="Left" Margin="285,10,0,0" VerticalAlignment="Top" Width="92"/>
+                            <Label Content="Reception date" HorizontalAlignment="Left" Margin="66,44,0,0" VerticalAlignment="Top"/>
+                            <Label Content="Giving date" HorizontalAlignment="Left" Margin="368,44,0,0" VerticalAlignment="Top"/>
+                            <DatePicker HorizontalAlignment="Left" Margin="161,46,0,0" VerticalAlignment="Top" DisplayDate="{Binding FromDate.Date, Mode=OneWay}"/>
+                            <DatePicker HorizontalAlignment="Left" Margin="443,46,0,0" VerticalAlignment="Top" DisplayDate="{Binding ToDate.Date, Mode=OneWay}"/>
+                            <Label Content="Done orders:" HorizontalAlignment="Left" Margin="40,90,0,0" VerticalAlignment="Top"/>
+                            <Label Content="{Binding DoneOrders, Mode=OneWay}" HorizontalAlignment="Left" Margin="132,90,0,0" VerticalAlignment="Top"/>
+                            <Label Content="Active orders:" HorizontalAlignment="Left" Margin="238,90,0,0" VerticalAlignment="Top"/>
+                            <Label Content="{Binding ActiveOrders, Mode=OneWay}" HorizontalAlignment="Left" Margin="325,90,0,0" VerticalAlignment="Top"/>
+                            <Label Content="Income from done orders:" HorizontalAlignment="Left" Margin="397,90,0,0" VerticalAlignment="Top"/>
+                            <Label Content="{Binding OrdersIncome, Mode=OneWay, StringFormat=\{0:F\}}" HorizontalAlignment="Left" Margin="550,90,0,0" VerticalAlignment="Top"/>
+                        </Grid>
+                    </Border>
+                </Grid>
             </TabItem>
         </TabControl>
 

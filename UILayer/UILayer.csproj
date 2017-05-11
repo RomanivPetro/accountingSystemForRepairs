@@ -64,8 +64,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Commands\AddOrderCommand.cs" />
+    <Compile Include="Commands\AddCommand.cs" />
     <Compile Include="ViewModels\AddOrderViewModel.cs" />
+    <Compile Include="ViewModels\WorkerViewModel.cs" />
     <Page Include="AppWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
