@@ -14,6 +14,7 @@ namespace DALayer
         private AccountingContext context = new AccountingContext();
         private AdministratorReposiry adminRepository;
         private OrderRepository orderRepository;
+        private WorkerRepository workerRepository;
 
         public IAdministratorRepository AdministratorRepository
         {
@@ -36,6 +37,18 @@ namespace DALayer
                     orderRepository = new OrderRepository(context);
                 }
                 return orderRepository;
+            }
+        }
+
+        public IWorkerRepository WorkerRepository
+        {
+            get
+            {
+                if (workerRepository == null)
+                {
+                    workerRepository = new WorkerRepository(context);
+                }
+                return workerRepository;
             }
         }
 
