@@ -63,6 +63,20 @@ namespace DALayer.Repositories
             Save();
         }
 
+        public void Update(Worker worker)
+        {
+            if (worker == null)
+            {
+                throw new ArgumentNullException("Worker cannot be null");
+            }
+            if (string.IsNullOrWhiteSpace(worker.Name))
+            {
+                throw new ArgumentException("Worker name is invalid");
+            }
+            context.Entry(worker).State = System.Data.Entity.EntityState.Modified;
+            Save();
+        }
+
         public int DoneOrdersCount(Worker worker, DateTime fromDate, DateTime toDate)
         {
             var query = GetOrdersQuery(worker, fromDate, toDate)

@@ -56,12 +56,12 @@
                             <ListBox HorizontalAlignment="Left" Height="98" Margin="111,0,0,0" VerticalAlignment="Top" Width="214" ItemsSource="{Binding Workers}" SelectedItem="{Binding SelectedWorker}" DisplayMemberPath=".Name"/>
                         </Grid>
                     </Border>
-                    <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="159" Margin="10,130,0,0" VerticalAlignment="Top" Width="658" CornerRadius="25">
+                    <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="207" Margin="10,130,0,0" VerticalAlignment="Top" Width="658" CornerRadius="25">
                         <Grid>
                             <Label Content="{Binding SelectedWorker.Name}" HorizontalAlignment="Left" Margin="183,10,5,0" VerticalAlignment="Top" Width="66" HorizontalContentAlignment="Stretch"/>
                             <Label Content="information" HorizontalAlignment="Left" Margin="285,10,0,0" VerticalAlignment="Top" Width="92"/>
-                            <Label Content="Reception date" HorizontalAlignment="Left" Margin="66,44,0,0" VerticalAlignment="Top"/>
-                            <Label Content="Giving date" HorizontalAlignment="Left" Margin="368,44,0,0" VerticalAlignment="Top"/>
+                            <Label Content="Start date" HorizontalAlignment="Left" Margin="66,44,0,0" VerticalAlignment="Top"/>
+                            <Label Content="End date" HorizontalAlignment="Left" Margin="368,44,0,0" VerticalAlignment="Top"/>
                             <DatePicker HorizontalAlignment="Left" Margin="161,46,0,0" VerticalAlignment="Top" DisplayDate="{Binding FromDate.Date, Mode=OneWay}"/>
                             <DatePicker HorizontalAlignment="Left" Margin="443,46,0,0" VerticalAlignment="Top" DisplayDate="{Binding ToDate.Date, Mode=OneWay}"/>
                             <Label Content="Done orders:" HorizontalAlignment="Left" Margin="40,90,0,0" VerticalAlignment="Top"/>
@@ -70,6 +70,10 @@
                             <Label Content="{Binding ActiveOrders, Mode=OneWay}" HorizontalAlignment="Left" Margin="325,90,0,0" VerticalAlignment="Top"/>
                             <Label Content="Income from done orders:" HorizontalAlignment="Left" Margin="397,90,0,0" VerticalAlignment="Top"/>
                             <Label Content="{Binding OrdersIncome, Mode=OneWay, StringFormat=\{0:F\}}" HorizontalAlignment="Left" Margin="550,90,0,0" VerticalAlignment="Top"/>
+                            <TextBox HorizontalAlignment="Left" Height="23" Margin="100,156,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Text="{Binding SelectedWorkerNewName}"/>
+                            <Button Content="Update" HorizontalAlignment="Left" Margin="245,159,0,0" VerticalAlignment="Top" Width="75" Command="{Binding UpdateWorkerCommand}"/>
+                            <Button Content="Remove" HorizontalAlignment="Left" Margin="397,159,0,0" VerticalAlignment="Top" Width="75"/>
+                            <Label Content="Name:" HorizontalAlignment="Left" Margin="40,156,0,0" VerticalAlignment="Top"/>
                         </Grid>
                     </Border>
                 </Grid>

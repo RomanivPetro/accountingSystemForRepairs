@@ -26,6 +26,7 @@ namespace UILayer.ViewModels
         private int doneOrders;
         private int activeOrders;
         private decimal ordersIncome;
+        private ICommand updateWorkerCommand;
 
         public event PropertyChangedEventHandler PropertyChanged;
 
@@ -35,6 +36,7 @@ namespace UILayer.ViewModels
             addWorkerCommand = new AddCommand(() => true, Add);
             AssignWorkers();
             SelectedWorker = workers.FirstOrDefault();
+            updateWorkerCommand = new AddCommand(() => true, UpdateWorker);
         }
 
         private void OnPropertyChanged(string propertyName)
@@ -115,6 +117,24 @@ namespace UILayer.ViewModels
             OnPropertyChanged("DoneOrders");
             OnPropertyChanged("ActiveOrders");
             OnPropertyChanged("OrdersIncome");
+            OnPropertyChanged("SelectedWorkerNewName");
+        }
+
+        private void UpdateWorker()
+        {
+            try
+            {
+                unitOfWork.WorkerRepository.Update(SelectedWorker);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(Resources.MsgAddFail + ex.Message, Resources.MsgError,
+                    MessageBoxButton.OK, MessageBoxImage.Error);
+                AssignWorkers();
+                return;
+            }
+            MessageBox.Show(Resources.MsgUpdateWorker, Resources.MsgSuccess,
+                MessageBoxButton.OK, MessageBoxImage.Information);
         }
 
         private bool IsDateValid()
@@ -148,6 +168,17 @@ namespace UILayer.ViewModels
         public string OrdersIncome
         {
             get => ordersIncome.ToString();
+        }
+
+        public string SelectedWorkerNewName
+        {
+            get => SelectedWorker.Name;
+            set => SelectedWorker.Name = value;
+        }
+
+        public ICommand UpdateWorkerCommand
+        {
+            get => updateWorkerCommand;
         }
         #endregion
     }

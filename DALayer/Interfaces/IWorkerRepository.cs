@@ -10,6 +10,8 @@ namespace DALayer.Interfaces
 
         void Delete(Worker worker);
 
+        void Update(Worker worker);
+
         IEnumerable<Worker> GetWorkers();
 
         int ActiveOrdersCount(Worker worker, DateTime fromDate, DateTime toDate);

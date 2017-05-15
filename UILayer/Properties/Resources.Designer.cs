@@ -115,6 +115,15 @@ namespace UILayer.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Worker was successfuly updated.
+        /// </summary>
+        internal static string MsgUpdateWorker {
+            get {
+                return ResourceManager.GetString("MsgUpdateWorker", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Worker name cannot be white space.
         /// </summary>
         internal static string MsgWorkerEmpty {
