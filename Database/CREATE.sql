@@ -1,5 +1,4 @@
-﻿
-
+﻿-- TODO: write if statement for db creating
 USE AccountingSystemDB
 GO
 
