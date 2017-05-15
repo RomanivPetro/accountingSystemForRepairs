@@ -3,11 +3,11 @@ using Entities;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Diagnostics;
 using System.Linq;
 using System.Windows;
 using System.Windows.Input;
 using UILayer.Commands;
+using UILayer.Properties;
 
 namespace UILayer.ViewModels
 {   //TODO: add fields validation!!!
@@ -41,9 +41,12 @@ namespace UILayer.ViewModels
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Some thing wrong:\n" + ex.Message);
+                MessageBox.Show(Resources.MsgAddFail + ex.Message, Resources.MsgFail,
+                    MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
             }
-            MessageBox.Show("Succes");
+            MessageBox.Show(Resources.MsgAddOrderSuccess, Resources.MsgSuccess, 
+                MessageBoxButton.OK, MessageBoxImage.Information);
         }
 
         private void OnPropertyChanged(string propertyName)

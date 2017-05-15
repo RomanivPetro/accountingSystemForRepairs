@@ -3,13 +3,11 @@ using Entities;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Diagnostics;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
 using UILayer.Commands;
+using UILayer.Properties;
 
 namespace UILayer.ViewModels
 {
@@ -49,18 +47,21 @@ namespace UILayer.ViewModels
         {
             if (string.IsNullOrWhiteSpace(newWorkerName))
             {
-                MessageBox.Show("Worker name cannot be white space.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show(Resources.MsgWorkerEmpty, Resources.MsgError,
+                    MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
             }
             try
             {
                 unitOfWork.WorkerRepository.Add(new Worker { Name = newWorkerName });
                 AssignWorkers();
-                MessageBox.Show("Worker added succesfully", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
+                MessageBox.Show(Resources.MsgAddWorkerSuccess, Resources.MsgSuccess,
+                    MessageBoxButton.OK, MessageBoxImage.Information);
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Something goes wrong.\n" + ex.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show(Resources.MsgAddFail + ex.Message, Resources.MsgError,
+                    MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
 
