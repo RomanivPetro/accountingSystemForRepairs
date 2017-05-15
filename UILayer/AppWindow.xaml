@@ -72,7 +72,7 @@
                             <Label Content="{Binding OrdersIncome, Mode=OneWay, StringFormat=\{0:F\}}" HorizontalAlignment="Left" Margin="550,90,0,0" VerticalAlignment="Top"/>
                             <TextBox HorizontalAlignment="Left" Height="23" Margin="100,156,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Text="{Binding SelectedWorkerNewName}"/>
                             <Button Content="Update" HorizontalAlignment="Left" Margin="245,159,0,0" VerticalAlignment="Top" Width="75" Command="{Binding UpdateWorkerCommand}"/>
-                            <Button Content="Remove" HorizontalAlignment="Left" Margin="397,159,0,0" VerticalAlignment="Top" Width="75"/>
+                            <Button Content="Remove" HorizontalAlignment="Left" Margin="397,159,0,0" VerticalAlignment="Top" Width="75" Command="{Binding DeleteWorkerCommand, Mode=OneWay}"/>
                             <Label Content="Name:" HorizontalAlignment="Left" Margin="40,156,0,0" VerticalAlignment="Top"/>
                         </Grid>
                     </Border>

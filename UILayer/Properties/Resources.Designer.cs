@@ -88,6 +88,15 @@ namespace UILayer.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Worker successfully deleted.
+        /// </summary>
+        internal static string MsgDeletedWorker {
+            get {
+                return ResourceManager.GetString("MsgDeletedWorker", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Error.
         /// </summary>
         internal static string MsgError {
@@ -102,6 +111,24 @@ namespace UILayer.Properties {
         internal static string MsgFail {
             get {
                 return ResourceManager.GetString("MsgFail", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Are you really want to delete this worker?.
+        /// </summary>
+        internal static string MsgIsDeleteWorker {
+            get {
+                return ResourceManager.GetString("MsgIsDeleteWorker", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Are you sure?.
+        /// </summary>
+        internal static string MsgIsDeleteWorkerCaption {
+            get {
+                return ResourceManager.GetString("MsgIsDeleteWorkerCaption", resourceCulture);
             }
         }
         

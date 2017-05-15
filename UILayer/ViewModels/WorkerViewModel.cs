@@ -27,6 +27,7 @@ namespace UILayer.ViewModels
         private int activeOrders;
         private decimal ordersIncome;
         private ICommand updateWorkerCommand;
+        private ICommand deleteWorkerCommand;
 
         public event PropertyChangedEventHandler PropertyChanged;
 
@@ -37,6 +38,7 @@ namespace UILayer.ViewModels
             AssignWorkers();
             SelectedWorker = workers.FirstOrDefault();
             updateWorkerCommand = new AddCommand(() => true, UpdateWorker);
+            deleteWorkerCommand = new AddCommand(() => true, Delete);
         }
 
         private void OnPropertyChanged(string propertyName)
@@ -96,9 +98,12 @@ namespace UILayer.ViewModels
             get => selectedWorker;
             set
             {
-                selectedWorker = value;
-                OnPropertyChanged("SelectedWorker");
-                AssingSelectedWorkerInformation();
+                if (value != null)
+                {
+                    selectedWorker = value;
+                    OnPropertyChanged("SelectedWorker");
+                    AssingSelectedWorkerInformation(); 
+                }
             }
         }
         #endregion
@@ -135,6 +140,20 @@ namespace UILayer.ViewModels
             }
             MessageBox.Show(Resources.MsgUpdateWorker, Resources.MsgSuccess,
                 MessageBoxButton.OK, MessageBoxImage.Information);
+        }
+
+        private void Delete()
+        {
+            MessageBoxResult result =  MessageBox.Show(Resources.MsgIsDeleteWorker,
+                Resources.MsgIsDeleteWorkerCaption, MessageBoxButton.YesNo, MessageBoxImage.Question);
+            if (result == MessageBoxResult.Yes)
+            {
+                unitOfWork.WorkerRepository.Delete(selectedWorker);
+                MessageBox.Show(Resources.MsgDeletedWorker, Resources.MsgSuccess,
+                    MessageBoxButton.OK, MessageBoxImage.Information);
+                SelectedWorker = workers.FirstOrDefault();
+                AssignWorkers();
+            }
         }
 
         private bool IsDateValid()
@@ -179,6 +198,11 @@ namespace UILayer.ViewModels
         public ICommand UpdateWorkerCommand
         {
             get => updateWorkerCommand;
+        }
+
+        public ICommand DeleteWorkerCommand
+        {
+            get => deleteWorkerCommand;
         }
         #endregion
     }

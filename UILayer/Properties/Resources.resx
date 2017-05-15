@@ -126,11 +126,20 @@
   <data name="MsgAddWorkerSuccess" xml:space="preserve">
     <value>Worker was successfully added</value>
   </data>
+  <data name="MsgDeletedWorker" xml:space="preserve">
+    <value>Worker successfully deleted</value>
+  </data>
   <data name="MsgError" xml:space="preserve">
     <value>Error</value>
   </data>
   <data name="MsgFail" xml:space="preserve">
     <value>Fail</value>
+  </data>
+  <data name="MsgIsDeleteWorker" xml:space="preserve">
+    <value>Are you really want to delete this worker?</value>
+  </data>
+  <data name="MsgIsDeleteWorkerCaption" xml:space="preserve">
+    <value>Are you sure?</value>
   </data>
   <data name="MsgSuccess" xml:space="preserve">
     <value>Success</value>
