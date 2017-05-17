@@ -64,8 +64,8 @@
                             <Label Content="information" HorizontalAlignment="Left" Margin="285,10,0,0" VerticalAlignment="Top" Width="92"/>
                             <Label Content="Start date" HorizontalAlignment="Left" Margin="66,44,0,0" VerticalAlignment="Top"/>
                             <Label Content="End date" HorizontalAlignment="Left" Margin="368,44,0,0" VerticalAlignment="Top"/>
-                            <DatePicker HorizontalAlignment="Left" Margin="161,46,0,0" VerticalAlignment="Top" DisplayDate="{Binding FromDate.Date, Mode=OneWay}"/>
-                            <DatePicker HorizontalAlignment="Left" Margin="443,46,0,0" VerticalAlignment="Top" DisplayDate="{Binding ToDate.Date, Mode=OneWay}"/>
+                            <DatePicker HorizontalAlignment="Left" Margin="161,46,0,0" VerticalAlignment="Top" SelectedDate="{Binding FromDate, StringFormat=\{0:d\}}"/>
+                            <DatePicker HorizontalAlignment="Left" Margin="443,46,0,0" VerticalAlignment="Top" SelectedDate="{Binding ToDate, StringFormat=\{0:d\}}"/>
                             <Label Content="Done orders:" HorizontalAlignment="Left" Margin="40,90,0,0" VerticalAlignment="Top"/>
                             <Label Content="{Binding DoneOrders, Mode=OneWay}" HorizontalAlignment="Left" Margin="132,90,0,0" VerticalAlignment="Top"/>
                             <Label Content="Active orders:" HorizontalAlignment="Left" Margin="238,90,0,0" VerticalAlignment="Top"/>

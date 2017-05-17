@@ -37,6 +37,8 @@ namespace UILayer.ViewModels
             addWorkerCommand = new AddCommand(() => true, Add);
             AssignWorkers();
             SelectedWorker = workers.FirstOrDefault();
+            ToDate = DateTime.Today.Date;
+            FromDate = ToDate.AddDays(-30);
             updateWorkerCommand = new AddCommand(() => true, UpdateWorker);
             deleteWorkerCommand = new AddCommand(() => true, Delete);
         }
@@ -111,8 +113,6 @@ namespace UILayer.ViewModels
         #region selected worker information
         private void AssingSelectedWorkerInformation()
         {
-            ToDate = DateTime.Today.Date;
-            FromDate = ToDate.AddDays(-30);
             doneOrders = unitOfWork.WorkerRepository
                 .DoneOrdersCount(selectedWorker, fromDate, toDate);
             activeOrders = unitOfWork.WorkerRepository
@@ -165,13 +165,21 @@ namespace UILayer.ViewModels
         public DateTime FromDate
         {
             get => fromDate;
-            set => fromDate = value;
+            set
+            {
+                fromDate = value;
+                AssingSelectedWorkerInformation();
+            }
         }
 
         public DateTime ToDate
         {
             get => toDate;
-            set => toDate = value;
+            set
+            {
+                toDate = value;
+                AssingSelectedWorkerInformation();
+            }
         }
 
         public string DoneOrders
