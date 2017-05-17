@@ -1,17 +1,8 @@
 ﻿using Entities;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
+using UILayer.ViewModels;
 
 namespace UILayer
 {
@@ -20,15 +11,22 @@ namespace UILayer
     /// </summary>
     public partial class AppWindow : Window
     {
+        private AddOrderViewModel viewModel;
+
         public AppWindow()
         {
             InitializeComponent();
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void WorkersListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            ViewModels.AddOrderViewModel viewModel = AddOrderGrid.DataContext as ViewModels.AddOrderViewModel;
-            viewModel.SelectedWorkers = WorkersListBox.SelectedItems as List<Worker>;
+            viewModel = AddOrderGrid.DataContext as AddOrderViewModel;
+            var selected = new List<Worker>();
+            foreach (Worker item in WorkersListBox.SelectedItems)
+            {
+                selected.Add(item);
+            }
+           viewModel.SelectedWorkers = selected;
         }
     }
 }

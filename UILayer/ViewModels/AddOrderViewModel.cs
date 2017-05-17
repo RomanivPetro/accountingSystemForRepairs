@@ -34,6 +34,8 @@ namespace UILayer.ViewModels
 
         private void AddOrder()
         {
+            //order.Worker = selectedWorkers.ToList();
+            //unitOfWork.OrderRepository.AddOrder(order);
             try
             {
                 order.Worker = selectedWorkers.ToList();
@@ -41,7 +43,7 @@ namespace UILayer.ViewModels
             }
             catch (Exception ex)
             {
-                MessageBox.Show(Resources.MsgAddFail + ex.Message, Resources.MsgFail,
+                MessageBox.Show(Resources.MsgAddFail + ex.Message + ex.Source, Resources.MsgFail,
                     MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
             }
@@ -121,7 +123,7 @@ namespace UILayer.ViewModels
 
         public IEnumerable<Worker> SelectedWorkers
         {
-            //get => workers.Take(1).ToList();
+            get => workers;
             set => selectedWorkers = value;
         }
         #endregion
