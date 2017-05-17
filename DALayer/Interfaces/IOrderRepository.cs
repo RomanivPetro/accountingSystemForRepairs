@@ -1,4 +1,5 @@
 ﻿using Entities;
+using System.Collections.Generic;
 
 namespace DALayer.Interfaces
 {
@@ -9,5 +10,7 @@ namespace DALayer.Interfaces
         Order GetById(int orderId);
 
         void Update(Order order);
+
+        IEnumerable<Order> GetActiveOrders();
     }
 }

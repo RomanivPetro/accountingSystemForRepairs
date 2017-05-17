@@ -3,12 +3,11 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:UILayer"
-        xmlns:ViewModels="clr-namespace:UILayer.ViewModels"
+    xmlns:ViewModels="clr-namespace:UILayer.ViewModels"
         x:Class="UILayer.AppWindow"
         mc:Ignorable="d"
         Title="AppWindow" Height="416.041" Width="705.155">
-    
+
     <Grid>
         <TabControl HorizontalAlignment="Left" Height="375" VerticalAlignment="Top" Width="697">
             <TabItem Header="Add order">
@@ -78,6 +77,21 @@
                             <Label Content="Name:" HorizontalAlignment="Left" Margin="40,156,0,0" VerticalAlignment="Top"/>
                         </Grid>
                     </Border>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Orders">
+                <Grid Background="#FFE5E5E5">
+                    <Grid.DataContext>
+                        <ViewModels:OrdersViewModel/>
+                    </Grid.DataContext>
+                    <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="259" Margin="10,10,0,0" VerticalAlignment="Top" Width="671" CornerRadius="25">
+                        <Grid>
+                            <DataGrid HorizontalAlignment="Left" Height="202" Margin="0,31,0,0" VerticalAlignment="Top" Width="669" ItemsSource="{Binding Orders}"/>
+                            <Button Content="Get active" HorizontalAlignment="Left" Margin="42,6,0,0" VerticalAlignment="Top" Width="75" Command="{Binding GetActiveOrdersCommand, Mode=OneWay}"/>
+
+                        </Grid>
+                    </Border>
+
                 </Grid>
             </TabItem>
         </TabControl>

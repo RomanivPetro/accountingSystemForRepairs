@@ -66,6 +66,7 @@
     </ApplicationDefinition>
     <Compile Include="Commands\AddCommand.cs" />
     <Compile Include="ViewModels\AddOrderViewModel.cs" />
+    <Compile Include="ViewModels\OrdersViewModel.cs" />
     <Compile Include="ViewModels\WorkerViewModel.cs" />
     <Page Include="AppWindow.xaml">
       <SubType>Designer</SubType>

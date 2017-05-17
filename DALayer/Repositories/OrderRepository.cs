@@ -1,6 +1,8 @@
 ﻿using DALayer.Interfaces;
 using System;
 using Entities;
+using System.Linq;
+using System.Collections.Generic;
 
 namespace DALayer.Repositories
 {
@@ -17,6 +19,26 @@ namespace DALayer.Repositories
         {
             context.SaveChanges();
         }
+
+        private IQueryable<Order> GetOrdersQuery(DateTime fromDate, DateTime toDate)
+        {
+            var query = from order in context.Order
+                        where fromDate <= order.ReceptionDate
+                        && order.ReceptionDate <= toDate
+                        orderby order.ReceptionDate
+                        select order;
+            return query;
+        }
+
+        private IQueryable<Order> GetActiveOrdersQuery()
+        {
+            var query = from order in context.Order
+                        where order.GivingDate == null
+                        orderby order.ReceptionDate
+                        select order;
+            return query;
+        }
+
 
         public void AddOrder(Order order)
         {
@@ -46,6 +68,11 @@ namespace DALayer.Repositories
             }
             context.Entry(order).State = System.Data.Entity.EntityState.Modified;
             Save();
+        }
+
+        public IEnumerable<Order> GetActiveOrders()
+        {
+            return GetActiveOrdersQuery().AsEnumerable();
         }
     }
 }
