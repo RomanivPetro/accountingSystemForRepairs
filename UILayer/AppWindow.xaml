@@ -6,10 +6,10 @@
     xmlns:ViewModels="clr-namespace:UILayer.ViewModels"
         x:Class="UILayer.AppWindow"
         mc:Ignorable="d"
-        Title="AppWindow" Height="416.041" Width="705.155">
+        Title="AppWindow" Height="452.041" Width="783.155">
 
     <Grid>
-        <TabControl HorizontalAlignment="Left" Height="375" VerticalAlignment="Top" Width="697">
+        <TabControl HorizontalAlignment="Stretch" Height="Auto" VerticalAlignment="Stretch" Width="Auto" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Margin="1">
             <TabItem Header="Add order">
                 <Grid x:Name="AddOrderGrid" Background="#FFE5E5E5">
                     <Grid.DataContext>
@@ -48,16 +48,16 @@
                         <Grid>
                             <Label Content="Worker name" Margin="10,31,181,43"/>
                             <TextBox Margin="98,28,28,43" Text="{Binding NewWorkerName, UpdateSourceTrigger=PropertyChanged}" MaxLines="1" MaxLength="50" />
-                            <Button Content="Add worker" Margin="69,65,112,10" Command="{Binding AddWorkerCommand, Mode=OneWay}"/>
+                            <Button Content="Add worker" Margin="98,65,84,10" Command="{Binding AddWorkerCommand, Mode=OneWay}"/>
                         </Grid>
                     </Border>
-                    <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="100" Margin="307,10,0,0" VerticalAlignment="Top" Width="361" CornerRadius="25">
+                    <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Right" Height="100" Margin="0,10,10,0" VerticalAlignment="Top" Width="361" CornerRadius="25">
                         <Grid>
                             <Label Content="Select Worker" HorizontalAlignment="Left" Margin="10,35,0,0" VerticalAlignment="Top"/>
                             <ListBox HorizontalAlignment="Left" Height="98" Margin="111,0,0,0" VerticalAlignment="Top" Width="214" ItemsSource="{Binding Workers}" SelectedItem="{Binding SelectedWorker}" DisplayMemberPath=".Name"/>
                         </Grid>
                     </Border>
-                    <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="207" Margin="10,130,0,0" VerticalAlignment="Top" Width="658" CornerRadius="25">
+                    <Border BorderBrush="Black" BorderThickness="1" Height="207" Margin="10,130,0,0" VerticalAlignment="Top" Width="658" CornerRadius="25">
                         <Grid>
                             <Label Content="{Binding SelectedWorker.Name}" HorizontalAlignment="Left" Margin="183,10,5,0" VerticalAlignment="Top" Width="66" HorizontalContentAlignment="Stretch"/>
                             <Label Content="information" HorizontalAlignment="Left" Margin="285,10,0,0" VerticalAlignment="Top" Width="92"/>
@@ -84,9 +84,22 @@
                     <Grid.DataContext>
                         <ViewModels:OrdersViewModel/>
                     </Grid.DataContext>
-                    <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="259" Margin="10,10,0,0" VerticalAlignment="Top" Width="671" CornerRadius="25">
+                    <Border BorderBrush="Black" BorderThickness="1" Margin="10,10,0,125" CornerRadius="25">
                         <Grid>
-                            <DataGrid HorizontalAlignment="Left" Height="202" Margin="0,31,0,0" VerticalAlignment="Top" Width="669" ItemsSource="{Binding Orders}"/>
+                            <DataGrid Margin="10,31,10,10" ItemsSource="{Binding Orders}" AutoGenerateColumns="False" IsReadOnly="True" SelectionMode="Single">
+                                <DataGrid.Columns>
+                                    <DataGridTextColumn Header="Customer name" Binding="{Binding CustomerName}" ClipboardContentBinding="{x:Null}"/>
+                                    <DataGridTextColumn Header="Phone" Binding="{Binding PhoneNumber}" ClipboardContentBinding="{x:Null}"/>
+                                    <DataGridTextColumn Header="Email" Binding="{Binding Email}" ClipboardContentBinding="{x:Null}"/>
+                                    <DataGridTextColumn Header="Device" Binding="{Binding Device}" ClipboardContentBinding="{x:Null}"/>
+                                    <DataGridTextColumn Header="Problem" Binding="{Binding Problem}" ClipboardContentBinding="{x:Null}"/>
+                                    <DataGridTextColumn Header="Reception date" Binding="{Binding ReceptionDate.Date, Mode=OneWay}" ClipboardContentBinding="{x:Null}"/>
+                                    <DataGridTextColumn Header="Giving date" Binding="{Binding GivingDate.Value.Date, Mode=OneWay}" ClipboardContentBinding="{x:Null}"/>
+                                    <DataGridTextColumn Header="Cost" Binding="{Binding Cost, StringFormat=\{0:F\}}" ClipboardContentBinding="{x:Null}"/>
+                                    <DataGridTextColumn Header="Income" Binding="{Binding Income, StringFormat=\{0:F\}}" ClipboardContentBinding="{x:Null}"/>
+                                    <DataGridTextColumn Header="Note" Binding="{Binding Note}" ClipboardContentBinding="{x:Null}"/>
+                                </DataGrid.Columns>
+                            </DataGrid>
                             <Button Content="Get active" HorizontalAlignment="Left" Margin="42,6,0,0" VerticalAlignment="Top" Width="75" Command="{Binding GetActiveOrdersCommand, Mode=OneWay}"/>
 
                         </Grid>
