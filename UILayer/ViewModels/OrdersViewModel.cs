@@ -17,6 +17,7 @@ namespace UILayer.ViewModels
         private UnitOfWork unitOfWork;
 
         private ObservableCollection<Order> orders;
+        private Order selectedOrder;
         private ICommand getActiveOrdersCommand;
 
         public event PropertyChangedEventHandler PropertyChanged;
@@ -47,6 +48,57 @@ namespace UILayer.ViewModels
         public ObservableCollection<Order> Orders
         {
             get => orders;
+        }
+
+        public Order SelectedOrder
+        {
+            get => selectedOrder;
+            set
+            {
+                selectedOrder = value;
+                OnPropertyChanged("SelectedOrderPhone");
+                OnPropertyChanged("SelectedOrderCost");
+                OnPropertyChanged("SelectedOrderIncome");
+                OnPropertyChanged("SelectedOrderReceptionDate");
+                OnPropertyChanged("SelectedOrderGivingDate");
+                OnPropertyChanged("SelectedOrderNote");
+            }
+        }
+
+        public string SelectedOrderPhone
+        {
+            get => selectedOrder?.PhoneNumber;
+            set => selectedOrder.PhoneNumber = value;
+        }
+
+        public decimal? SelectedOrderCost
+        {
+            get => selectedOrder?.Cost;
+            set => selectedOrder.Cost = (decimal)value;
+        }
+
+        public decimal? SelectedOrderIncome
+        {
+            get => selectedOrder?.Income;
+            set => selectedOrder.Income = (decimal)value;
+        }
+
+        public DateTime SelectedOrderReceptionDate
+        {
+            get => selectedOrder.ReceptionDate;
+            set => selectedOrder.ReceptionDate = value;
+        }
+
+        public DateTime SelectedOrderGivingDate
+        {
+            get => selectedOrder.GivingDate.Value;
+            set => selectedOrder.GivingDate = value;
+        }
+
+        public string SelectedOrderNote
+        {
+            get => selectedOrder?.Note;
+            set => selectedOrder.Note = value;
         }
     }
 }
