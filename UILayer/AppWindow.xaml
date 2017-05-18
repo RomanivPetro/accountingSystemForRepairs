@@ -107,7 +107,7 @@
                     <Border BorderBrush="Black" BorderThickness="1" Height="143" Margin="10,0,5,0" CornerRadius="25" VerticalAlignment="Bottom">
                         <Grid>
                             <TextBox HorizontalAlignment="Left" Height="24" Margin="10,36,0,0" TextWrapping="Wrap" Text="{Binding SelectedOrderPhone}" VerticalAlignment="Top" Width="120"/>
-                            <TextBox HorizontalAlignment="Left" Height="24" Margin="150,36,0,0" TextWrapping="Wrap" Text="{Binding SelectedOrder.Cost}" VerticalAlignment="Top" Width="120"/>
+                            <TextBox HorizontalAlignment="Left" Height="24" Margin="150,36,0,0" TextWrapping="Wrap" Text="{Binding SelectedOrderCost}" VerticalAlignment="Top" Width="120"/>
                             <TextBox HorizontalAlignment="Left" Height="24" Margin="295,36,0,0" TextWrapping="Wrap" Text="{Binding SelectedOrderIncome}" VerticalAlignment="Top" Width="120"/>
                             <Label Content="Phone:" HorizontalAlignment="Left" Margin="10,5,0,0" VerticalAlignment="Top" Width="120"/>
                             <Label Content="Cost:" HorizontalAlignment="Left" Margin="150,5,0,0" VerticalAlignment="Top" Width="120"/>

@@ -85,13 +85,13 @@ namespace UILayer.ViewModels
 
         public DateTime SelectedOrderReceptionDate
         {
-            get => selectedOrder.ReceptionDate;
+            get => selectedOrder == null ? DateTime.Now : selectedOrder.ReceptionDate;
             set => selectedOrder.ReceptionDate = value;
         }
 
-        public DateTime SelectedOrderGivingDate
+        public DateTime? SelectedOrderGivingDate
         {
-            get => selectedOrder.GivingDate.Value;
+            get => selectedOrder?.GivingDate;
             set => selectedOrder.GivingDate = value;
         }
 
