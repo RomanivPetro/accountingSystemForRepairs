@@ -30,6 +30,14 @@ namespace DALayer.Repositories
             return query;
         }
 
+        private IQueryable<Order> GetDoneOrdersQuery(DateTime fromDate, DateTime toDate)
+        {
+            var query = from order in GetOrdersQuery(fromDate, toDate)
+                        where order.GivingDate != null
+                        select order;
+            return query;
+        }
+
         private IQueryable<Order> GetActiveOrdersQuery()
         {
             var query = from order in context.Order
@@ -85,6 +93,28 @@ namespace DALayer.Repositories
         public IEnumerable<Order> GetActiveOrders()
         {
             return GetActiveOrdersQuery().AsEnumerable();
+        }
+
+        public decimal GetDoneOrdersCost(DateTime fromDate, DateTime toDate)
+        {
+            var query = GetDoneOrdersQuery(fromDate, toDate);
+            return query.Select(o => o.Cost).AsEnumerable().Sum();
+        }
+
+        public decimal GetDoneOrdersIncome(DateTime fromDate, DateTime toDate)
+        {
+            var query = GetDoneOrdersQuery(fromDate, toDate);
+            return query.Select(o => o.Income).AsEnumerable().Sum();
+        }
+
+        public int GetOrdersCount(DateTime fromDate, DateTime toDate)
+        {
+            return GetOrdersQuery(fromDate, toDate).Count();
+        }
+
+        public int GetDoneOrdersCount(DateTime fromDate, DateTime toDate)
+        {
+            return GetDoneOrdersQuery(fromDate, toDate).Count();
         }
     }
 }

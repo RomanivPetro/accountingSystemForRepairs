@@ -15,6 +15,7 @@ namespace DALayer
         private AdministratorReposiry adminRepository;
         private OrderRepository orderRepository;
         private WorkerRepository workerRepository;
+        private SpendingRepository spendingRepository;
 
         public IAdministratorRepository AdministratorRepository
         {
@@ -49,6 +50,18 @@ namespace DALayer
                     workerRepository = new WorkerRepository(context);
                 }
                 return workerRepository;
+            }
+        }
+
+        public ISpendingRepository SpendingRepository
+        {
+            get
+            {
+                if (spendingRepository == null)
+                {
+                    spendingRepository = new SpendingRepository(context);
+                }
+                return spendingRepository;
             }
         }
 
