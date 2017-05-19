@@ -86,8 +86,10 @@ namespace DALayer.Repositories
             }
             var query = from order in context.Order
                         where order.PhoneNumber.Contains(phoneNumber)
+                        orderby order.ReceptionDate descending
                         select order;
-            return query.AsEnumerable();
+            //Takes last 50. Because when you enter "+380" or "0" it can select all DB
+            return query.Take(50).AsEnumerable(); 
         }
 
         public IEnumerable<Order> GetActiveOrders()
