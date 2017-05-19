@@ -94,31 +94,42 @@
                                     <DataGridTextColumn Header="Device" Binding="{Binding Device}" ClipboardContentBinding="{x:Null}"/>
                                     <DataGridTextColumn Header="Problem" Binding="{Binding Problem}" ClipboardContentBinding="{x:Null}"/>
                                     <DataGridTextColumn Header="Reception date" Binding="{Binding ReceptionDate.Date, Mode=OneWay}" ClipboardContentBinding="{x:Null}"/>
-                                    <DataGridTextColumn Header="Giving date" Binding="{Binding GivingDate.Value.Date, Mode=OneWay}" ClipboardContentBinding="{x:Null}"/>
+                                    <DataGridTextColumn Header="Giving date" Binding="{Binding GivingDate, Mode=OneWay}" ClipboardContentBinding="{x:Null}"/>
                                     <DataGridTextColumn Header="Cost" Binding="{Binding Cost, StringFormat=\{0:F\}}" ClipboardContentBinding="{x:Null}"/>
                                     <DataGridTextColumn Header="Income" Binding="{Binding Income, StringFormat=\{0:F\}}" ClipboardContentBinding="{x:Null}"/>
                                     <DataGridTextColumn Header="Note" Binding="{Binding Note}" ClipboardContentBinding="{x:Null}"/>
                                 </DataGrid.Columns>
                             </DataGrid>
-                            <Button Content="Get active" HorizontalAlignment="Left" Margin="42,6,0,0" VerticalAlignment="Top" Width="75" Command="{Binding GetActiveOrdersCommand, Mode=OneWay}"/>
+                            <Button Content="Get active" HorizontalAlignment="Left" Margin="38,6,0,0" VerticalAlignment="Top" Width="74" Command="{Binding GetActiveOrdersCommand, Mode=OneWay}"/>
+                            <Label Content="Phone number:" HorizontalAlignment="Left" Margin="161,3,0,0" VerticalAlignment="Top"/>
+                            <TextBox HorizontalAlignment="Left" Height="23" Margin="257,3,0,0" TextWrapping="Wrap" Text="{Binding PhoneNumber}" VerticalAlignment="Top" Width="120"/>
+                            <Button Content="Find by phone" HorizontalAlignment="Left" Margin="408,6,0,0" VerticalAlignment="Top" Width="108" Command="{Binding FindByPhoneCommand, Mode=OneWay}"/>
 
                         </Grid>
                     </Border>
                     <Border BorderBrush="Black" BorderThickness="1" Height="143" Margin="10,0,5,0" CornerRadius="25" VerticalAlignment="Bottom">
                         <Grid>
-                            <TextBox HorizontalAlignment="Left" Height="24" Margin="10,36,0,0" TextWrapping="Wrap" Text="{Binding SelectedOrderPhone}" VerticalAlignment="Top" Width="120"/>
-                            <TextBox HorizontalAlignment="Left" Height="24" Margin="150,36,0,0" TextWrapping="Wrap" Text="{Binding SelectedOrderCost}" VerticalAlignment="Top" Width="120"/>
-                            <TextBox HorizontalAlignment="Left" Height="24" Margin="295,36,0,0" TextWrapping="Wrap" Text="{Binding SelectedOrderIncome}" VerticalAlignment="Top" Width="120"/>
+                            <TextBox HorizontalAlignment="Left" Height="24" Margin="10,36,0,0" TextWrapping="Wrap" Text="{Binding SelectedOrderPhone}" VerticalAlignment="Top" Width="96"/>
+                            <TextBox HorizontalAlignment="Left" Height="24" Margin="150,36,0,0" TextWrapping="Wrap" Text="{Binding SelectedOrderCost}" VerticalAlignment="Top" Width="80"/>
+                            <TextBox HorizontalAlignment="Left" Height="24" Margin="277,36,0,0" TextWrapping="Wrap" Text="{Binding SelectedOrderIncome}" VerticalAlignment="Top" Width="78"/>
                             <Label Content="Phone:" HorizontalAlignment="Left" Margin="10,5,0,0" VerticalAlignment="Top" Width="120"/>
                             <Label Content="Cost:" HorizontalAlignment="Left" Margin="150,5,0,0" VerticalAlignment="Top" Width="120"/>
-                            <Label Content="Income:" HorizontalAlignment="Left" Margin="295,5,0,0" VerticalAlignment="Top" Width="120"/>
-                            <DatePicker HorizontalAlignment="Left" Margin="444,36,0,0" VerticalAlignment="Top" SelectedDate="{Binding SelectedOrderReceptionDate.Date, Mode=OneWay}"/>
-                            <DatePicker HorizontalAlignment="Left" Margin="580,36,0,0" VerticalAlignment="Top" SelectedDate="{Binding SelectedOrderGivingDate.Date, Mode=OneWay}"/>
-                            <Label Content="Reception date:" HorizontalAlignment="Left" Margin="444,5,0,0" VerticalAlignment="Top" Height="26" Width="102"/>
-                            <Label Content="Giving date:" HorizontalAlignment="Left" Margin="580,5,0,0" VerticalAlignment="Top" Height="26" Width="102"/>
-                            <TextBox HorizontalAlignment="Left" Height="52" Margin="88,78,0,0" TextWrapping="Wrap" Text="{Binding SelectedOrderNote}" VerticalAlignment="Top" Width="142"/>
-                            <Label Content="Note:" HorizontalAlignment="Left" Margin="16,92,0,0" VerticalAlignment="Top" Width="72"/>
-                            <Button Content="Update" HorizontalAlignment="Left" Margin="336,78,0,0" VerticalAlignment="Top" Width="137" Height="52" FontSize="16" FontWeight="Bold"/>
+                            <Label Content="Income:" HorizontalAlignment="Left" Margin="277,5,0,0" VerticalAlignment="Top" Width="120"/>
+                            <DatePicker HorizontalAlignment="Left" Margin="375,36,0,0" VerticalAlignment="Top" SelectedDate="{Binding SelectedOrderReceptionDate.Date, Mode=OneWay}"/>
+                            <DatePicker HorizontalAlignment="Left" Margin="15,104,0,0" VerticalAlignment="Top" SelectedDate="{Binding SelectedOrderGivingDate}"/>
+                            <Label Content="Reception date:" HorizontalAlignment="Left" Margin="375,5,0,0" VerticalAlignment="Top" Height="26" Width="102"/>
+                            <Label Content="Giving date:" HorizontalAlignment="Left" Margin="15,73,0,0" VerticalAlignment="Top" Height="26" Width="102"/>
+                            <TextBox HorizontalAlignment="Left" Height="52" Margin="213,76,0,0" TextWrapping="Wrap" Text="{Binding SelectedOrderNote}" VerticalAlignment="Top" Width="142"/>
+                            <Label Content="Note:" HorizontalAlignment="Left" Margin="136,91,0,0" VerticalAlignment="Top" Width="72"/>
+                            <Button Content="Update" HorizontalAlignment="Left" Margin="404,76,0,0" VerticalAlignment="Top" Width="138" Height="52" FontSize="16" FontWeight="Bold" Command="{Binding UpdateOrderCommand, Mode=OneWay}"/>
+                            <Label Content="Workers:" HorizontalAlignment="Left" Margin="514,34,0,0" VerticalAlignment="Top"/>
+                            <ListView HorizontalAlignment="Left" Height="107" Margin="575,10,0,0" VerticalAlignment="Top" Width="147" ItemsSource="{Binding Workers}">
+                                <ListView.View>
+                                    <GridView>
+                                        <GridViewColumn/>
+                                    </GridView>
+                                </ListView.View>
+                            </ListView>
 
                         </Grid>
                     </Border>

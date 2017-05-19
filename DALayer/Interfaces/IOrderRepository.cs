@@ -12,5 +12,7 @@ namespace DALayer.Interfaces
         void Update(Order order);
 
         IEnumerable<Order> GetActiveOrders();
+
+        IEnumerable<Order> FindByPhone(string phoneNumber);
     }
 }

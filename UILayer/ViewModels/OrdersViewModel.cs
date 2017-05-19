@@ -4,9 +4,11 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Input;
 using UILayer.Commands;
 
@@ -18,7 +20,10 @@ namespace UILayer.ViewModels
 
         private ObservableCollection<Order> orders;
         private Order selectedOrder;
+        public string phoneNumber;
         private ICommand getActiveOrdersCommand;
+        private ICommand updateOrderCommand;
+        private ICommand findByPhoneCommand;
 
         public event PropertyChangedEventHandler PropertyChanged;
 
@@ -26,6 +31,8 @@ namespace UILayer.ViewModels
         {
             unitOfWork = new UnitOfWork();
             getActiveOrdersCommand = new AddCommand(() => true, AssingActiveOrders);
+            findByPhoneCommand = new AddCommand(() => true, FindByPhone);
+            updateOrderCommand = new AddCommand(() => true, UpdateSelectedOrder);
         }
 
         private void OnPropertyChanged(string propertyName)
@@ -37,7 +44,40 @@ namespace UILayer.ViewModels
         {
             var ordersCollection = unitOfWork.OrderRepository.GetActiveOrders();
             orders = new ObservableCollection<Order>(ordersCollection);
+            orders.CollectionChanged += OrdersCollectionChanged;
             OnPropertyChanged("Orders");
+        }
+
+        private void OrdersCollectionChanged(object sender, System.Collections.Specialized.NotifyCollectionChangedEventArgs e)
+        {
+            OnPropertyChanged("Orders");
+        }
+
+        private void UpdateSelectedOrder()
+        {
+            try
+            {
+                unitOfWork.OrderRepository.Update(selectedOrder);
+                MessageBox.Show("", "", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("", "", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
+
+        private void FindByPhone()
+        {
+            try
+            {
+                var newOrders = unitOfWork.OrderRepository.FindByPhone(phoneNumber);
+                orders = new ObservableCollection<Order>(newOrders);
+                OnPropertyChanged("Orders");
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("", "", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
         }
 
         public ICommand GetActiveOrdersCommand
@@ -45,9 +85,25 @@ namespace UILayer.ViewModels
             get => getActiveOrdersCommand;
         }
 
+        public ICommand FindByPhoneCommand
+        {
+            get => findByPhoneCommand;
+        }
+
+        public ICommand UpdateOrderCommand
+        {
+            get => updateOrderCommand;
+        }
+
         public ObservableCollection<Order> Orders
         {
             get => orders;
+        }
+
+        public string PhoneNumber
+        {
+            get => phoneNumber;
+            set => phoneNumber = value;
         }
 
         public Order SelectedOrder
@@ -62,6 +118,7 @@ namespace UILayer.ViewModels
                 OnPropertyChanged("SelectedOrderReceptionDate");
                 OnPropertyChanged("SelectedOrderGivingDate");
                 OnPropertyChanged("SelectedOrderNote");
+                OnPropertyChanged("Workers");
             }
         }
 
@@ -99,6 +156,11 @@ namespace UILayer.ViewModels
         {
             get => selectedOrder?.Note;
             set => selectedOrder.Note = value;
+        }
+
+        public IEnumerable<string> Workers
+        {
+            get => selectedOrder?.Worker.Select(w => w.Name);
         }
     }
 }

@@ -70,6 +70,18 @@ namespace DALayer.Repositories
             Save();
         }
 
+        public IEnumerable<Order> FindByPhone(string phoneNumber)
+        {
+            if (string.IsNullOrWhiteSpace(phoneNumber))
+            {
+                throw new ArgumentException("Phone number cannot be empty");
+            }
+            var query = from order in context.Order
+                        where order.PhoneNumber.Contains(phoneNumber)
+                        select order;
+            return query.AsEnumerable();
+        }
+
         public IEnumerable<Order> GetActiveOrders()
         {
             return GetActiveOrdersQuery().AsEnumerable();
