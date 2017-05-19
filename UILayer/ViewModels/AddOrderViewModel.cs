@@ -34,8 +34,6 @@ namespace UILayer.ViewModels
 
         private void AddOrder()
         {
-            //order.Worker = selectedWorkers.ToList();
-            //unitOfWork.OrderRepository.AddOrder(order);
             try
             {
                 order.Worker = selectedWorkers.ToList();

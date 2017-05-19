@@ -2,10 +2,8 @@
 using Entities;
 using System;
 using System.Security.Cryptography;
-using System.Collections.Generic;
 using System.Linq;
 using System.Data;
-using System.Threading.Tasks;
 using System.Text;
 
 namespace DALayer.Repositories
