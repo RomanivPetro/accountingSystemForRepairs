@@ -59,6 +59,10 @@ namespace DALayer.Repositories
             {
                 throw new ArgumentNullException("Worker cannot be null");
             }
+            foreach (var item in worker.Order)
+            {
+                item.Worker.Remove(worker);
+            }
             context.Worker.Remove(worker);
             Save();
         }
