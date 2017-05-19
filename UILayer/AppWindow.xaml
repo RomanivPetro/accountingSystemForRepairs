@@ -141,20 +141,20 @@
                     <Grid.DataContext>
                         <ViewModels:StatisticViewModel/>
                     </Grid.DataContext>
-                    <Border BorderBrush="Black" BorderThickness="1" Height="81" Margin="10,10,10,0" VerticalAlignment="Top" CornerRadius="25">
+                    <Border BorderBrush="Black" BorderThickness="1" Height="176" Margin="10,10,10,0" VerticalAlignment="Top" CornerRadius="25">
                         <Grid>
-                            <Label Content="Other spending:" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" FontSize="14" FontWeight="Bold"/>
-                            <Label Content="Description:" HorizontalAlignment="Left" Margin="152,10,0,0" VerticalAlignment="Top"/>
-                            <TextBox HorizontalAlignment="Left" Height="45" Margin="230,14,0,0" TextWrapping="Wrap" Text="{Binding Descriprtion}" VerticalAlignment="Top" Width="152" MaxLength="100"/>
-                            <Label Content="Cost:" HorizontalAlignment="Left" Margin="404,14,0,0" VerticalAlignment="Top"/>
-                            <TextBox HorizontalAlignment="Left" Height="23" Margin="445,18,0,0" TextWrapping="Wrap" Text="{Binding Cost, StringFormat=\{0:F\}}" VerticalAlignment="Top" Width="81"/>
-                            <Label Content="Date:" HorizontalAlignment="Left" Margin="547,18,0,0" VerticalAlignment="Top"/>
-                            <DatePicker HorizontalAlignment="Left" Margin="589,18,0,0" VerticalAlignment="Top" SelectedDate="{Binding Date.Date, Mode=OneWay}"/>
-                            <Button Content="Add" HorizontalAlignment="Left" Margin="10,44,0,0" VerticalAlignment="Top" Width="116" Command="{Binding AddSpendingCommand, Mode=OneWay}"/>
+                            <Label Content="Other spending:" HorizontalAlignment="Left" Margin="286,10,0,0" VerticalAlignment="Top" FontSize="14" FontWeight="Bold"/>
+                            <Label Content="Description:" HorizontalAlignment="Left" Margin="38,62,0,0" VerticalAlignment="Top"/>
+                            <TextBox HorizontalAlignment="Left" Height="43" Margin="128,65,0,0" TextWrapping="Wrap" Text="{Binding Descriprtion}" VerticalAlignment="Top" Width="162" MaxLength="100"/>
+                            <Label Content="Cost:" HorizontalAlignment="Left" Margin="322,61,0,0" VerticalAlignment="Top"/>
+                            <TextBox HorizontalAlignment="Left" Height="23" Margin="362,65,0,0" TextWrapping="Wrap" Text="{Binding Cost, StringFormat=\{0:F\}}" VerticalAlignment="Top" Width="124"/>
+                            <Label Content="Date:" HorizontalAlignment="Left" Margin="521,62,0,0" VerticalAlignment="Top"/>
+                            <DatePicker HorizontalAlignment="Left" Margin="563,65,0,0" VerticalAlignment="Top" SelectedDate="{Binding Date.Date, Mode=OneWay}"/>
+                            <Button Content="Add" HorizontalAlignment="Left" Margin="286,130,0,0" VerticalAlignment="Top" Width="130" Command="{Binding AddSpendingCommand, Mode=OneWay}" Height="34" FontSize="14" FontWeight="Bold"/>
 
                         </Grid>
                     </Border>
-                    <Border BorderBrush="Black" BorderThickness="1" Height="154" Margin="10,112,10,0" VerticalAlignment="Top" CornerRadius="25">
+                    <Border BorderBrush="Black" BorderThickness="1" Height="154" Margin="10,218,10,0" VerticalAlignment="Top" CornerRadius="25">
                         <Grid>
                             <Label Content="Statistic" HorizontalAlignment="Left" Margin="329,0,0,0" VerticalAlignment="Top" Width="70" FontSize="14" FontWeight="Bold"/>
                             <Label Content="Select date range" HorizontalAlignment="Left" Margin="26,28,0,0" VerticalAlignment="Top"/>
