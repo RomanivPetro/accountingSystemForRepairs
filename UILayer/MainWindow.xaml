@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:UILayer"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525">
+        Title="Accounting system" Height="350" Width="525">
     <Grid>
         <TextBox x:Name="LoginText" HorizontalAlignment="Left" Height="23" Margin="228,108,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" SpellCheck.IsEnabled="True"/>
         <PasswordBox x:Name="PasswordText" HorizontalAlignment="Left" Margin="228,167,0,0" VerticalAlignment="Top" Height="23" Width="120"/>

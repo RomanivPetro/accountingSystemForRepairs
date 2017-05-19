@@ -5,6 +5,7 @@ using System.ComponentModel;
 using System.Windows;
 using System.Windows.Input;
 using UILayer.Commands;
+using UILayer.Properties;
 
 namespace UILayer.ViewModels
 {
@@ -39,11 +40,12 @@ namespace UILayer.ViewModels
             try
             {
                 unitOfWork.SpendingRepository.Add(spending);
-                MessageBox.Show("", "", MessageBoxButton.OK, MessageBoxImage.Information);
+                MessageBox.Show(Resources.MsgAddSpendingSuccess, Resources.MsgSuccess, MessageBoxButton.OK, MessageBoxImage.Information);
             }
             catch (Exception)
             {
-                MessageBox.Show("", "", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show(Resources.MsgAddSpendingFail, Resources.MsgError
+                    , MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
 

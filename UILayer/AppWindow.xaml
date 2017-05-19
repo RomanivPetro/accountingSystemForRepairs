@@ -6,7 +6,7 @@
     xmlns:ViewModels="clr-namespace:UILayer.ViewModels"
         x:Class="UILayer.AppWindow"
         mc:Ignorable="d"
-        Title="AppWindow" Height="483.541" Width="765.155">
+        Title="Accounting system" Height="483.541" Width="765.155">
 
     <Grid>
         <TabControl HorizontalAlignment="Stretch" Height="Auto" VerticalAlignment="Stretch" Width="Auto" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Margin="1">

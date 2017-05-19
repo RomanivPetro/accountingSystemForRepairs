@@ -8,6 +8,7 @@ using System.Linq;
 using System.Windows;
 using System.Windows.Input;
 using UILayer.Commands;
+using UILayer.Properties;
 
 namespace UILayer.ViewModels
 {
@@ -41,12 +42,6 @@ namespace UILayer.ViewModels
         {
             var ordersCollection = unitOfWork.OrderRepository.GetActiveOrders();
             orders = new ObservableCollection<Order>(ordersCollection);
-            orders.CollectionChanged += OrdersCollectionChanged;
-            OnPropertyChanged("Orders");
-        }
-
-        private void OrdersCollectionChanged(object sender, System.Collections.Specialized.NotifyCollectionChangedEventArgs e)
-        {
             OnPropertyChanged("Orders");
         }
 
@@ -55,11 +50,13 @@ namespace UILayer.ViewModels
             try
             {
                 unitOfWork.OrderRepository.Update(selectedOrder);
-                MessageBox.Show("", "", MessageBoxButton.OK, MessageBoxImage.Information);
+                MessageBox.Show(Resources.MsgOrderUpdateSuccess, Resources.MsgSuccess,
+                    MessageBoxButton.OK, MessageBoxImage.Information);
             }
             catch (Exception)
             {
-                MessageBox.Show("", "", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show(Resources.MsgOrderUpdateFail, Resources.MsgError,
+                    MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
 
@@ -73,7 +70,8 @@ namespace UILayer.ViewModels
             }
             catch (Exception)
             {
-                MessageBox.Show("", "", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show(Resources.MsgFindOrderFail, Resources.MsgError, 
+                    MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
 

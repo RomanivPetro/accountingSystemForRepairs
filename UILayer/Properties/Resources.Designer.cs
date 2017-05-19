@@ -79,6 +79,24 @@ namespace UILayer.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Something goes wrong. Check entered data.
+        /// </summary>
+        internal static string MsgAddSpendingFail {
+            get {
+                return ResourceManager.GetString("MsgAddSpendingFail", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Spending Added.
+        /// </summary>
+        internal static string MsgAddSpendingSuccess {
+            get {
+                return ResourceManager.GetString("MsgAddSpendingSuccess", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Worker was successfully added.
         /// </summary>
         internal static string MsgAddWorkerSuccess {
@@ -115,6 +133,15 @@ namespace UILayer.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Input string cannot be empty.
+        /// </summary>
+        internal static string MsgFindOrderFail {
+            get {
+                return ResourceManager.GetString("MsgFindOrderFail", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Are you really want to delete this worker?.
         /// </summary>
         internal static string MsgIsDeleteWorker {
@@ -129,6 +156,24 @@ namespace UILayer.Properties {
         internal static string MsgIsDeleteWorkerCaption {
             get {
                 return ResourceManager.GetString("MsgIsDeleteWorkerCaption", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Something goes wrong. Check inputs.
+        /// </summary>
+        internal static string MsgOrderUpdateFail {
+            get {
+                return ResourceManager.GetString("MsgOrderUpdateFail", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Order successfully updated.
+        /// </summary>
+        internal static string MsgOrderUpdateSuccess {
+            get {
+                return ResourceManager.GetString("MsgOrderUpdateSuccess", resourceCulture);
             }
         }
         

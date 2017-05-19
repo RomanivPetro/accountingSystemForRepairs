@@ -123,6 +123,12 @@
   <data name="MsgAddOrderSuccess" xml:space="preserve">
     <value>Order was successfully added</value>
   </data>
+  <data name="MsgAddSpendingFail" xml:space="preserve">
+    <value>Something goes wrong. Check entered data</value>
+  </data>
+  <data name="MsgAddSpendingSuccess" xml:space="preserve">
+    <value>Spending Added</value>
+  </data>
   <data name="MsgAddWorkerSuccess" xml:space="preserve">
     <value>Worker was successfully added</value>
   </data>
@@ -135,11 +141,20 @@
   <data name="MsgFail" xml:space="preserve">
     <value>Fail</value>
   </data>
+  <data name="MsgFindOrderFail" xml:space="preserve">
+    <value>Input string cannot be empty</value>
+  </data>
   <data name="MsgIsDeleteWorker" xml:space="preserve">
     <value>Are you really want to delete this worker?</value>
   </data>
   <data name="MsgIsDeleteWorkerCaption" xml:space="preserve">
     <value>Are you sure?</value>
+  </data>
+  <data name="MsgOrderUpdateFail" xml:space="preserve">
+    <value>Something goes wrong. Check inputs</value>
+  </data>
+  <data name="MsgOrderUpdateSuccess" xml:space="preserve">
+    <value>Order successfully updated</value>
   </data>
   <data name="MsgSuccess" xml:space="preserve">
     <value>Success</value>

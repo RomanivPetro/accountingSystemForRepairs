@@ -10,7 +10,7 @@ using UILayer.Commands;
 using UILayer.Properties;
 
 namespace UILayer.ViewModels
-{   //TODO: add fields validation!!!
+{   
     public class AddOrderViewModel : INotifyPropertyChanged
     {
         private UnitOfWork unitOfWork;
