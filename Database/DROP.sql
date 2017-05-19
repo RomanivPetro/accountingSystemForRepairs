@@ -1,11 +1,5 @@
-﻿
-DROP TABLE [WorkerOrders]
-go
-DROP TABLE [Order]
-go
-DROP TABLE [Worker]
-go
-DROP TABLE [Administrator]
-go
-DROP TABLE [Spending]
-go
+﻿USE master
+GO
+
+DROP DATABASE AccountingSystemDB;
+GO
