@@ -77,7 +77,7 @@ namespace UILayer.ViewModels
 
         public ICommand GetActiveOrdersCommand
         {
-            get => getActiveOrdersCommand;
+            get { return getActiveOrdersCommand; }
         }
 
         public ICommand FindByPhoneCommand
