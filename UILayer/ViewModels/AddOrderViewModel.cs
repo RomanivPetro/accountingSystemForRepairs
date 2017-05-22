@@ -56,73 +56,73 @@ namespace UILayer.ViewModels
 
         public ICommand AddOrderCommand
         {
-            get => addOrderCommand;
+            get { return addOrderCommand; }
         }
 
         #region UI props
         public string CustomerName
         {
-            get => order.CustomerName;
-            set => order.CustomerName = value;
+            get{ return order.CustomerName; }
+            set { order.CustomerName = value; }
         }
 
         public string PhoneNumber
         {
-            get => order.PhoneNumber;
-            set => order.PhoneNumber = value;
+            get { return order.PhoneNumber; }
+            set { order.PhoneNumber = value; }
         }
 
         public string Email
         {
-            get => order.Email;
-            set => order.Email = value;
+            get { return order.Email; }
+            set { order.Email = value; }
         }
 
         public string Device
         {
-            get => order.Device;
-            set => order.Device = value;
+            get { return order.Device; }
+            set { order.Device = value; }
         }
 
         public string Problem
         {
-            get => order.Problem;
-            set => order.Problem = value;
+            get { return order.Problem; }
+            set { order.Problem = value; }
         }
 
         public DateTime ReceptionDate
         {
-            get => order.ReceptionDate;
-            set => order.ReceptionDate = value;
+            get { return order.ReceptionDate; }
+            set { order.ReceptionDate = value; }
         }
 
         public decimal Cost
         {
-            get => order.Cost;
-            set => order.Cost = value;
+            get { return order.Cost; }
+            set { order.Cost = value; }
         }
 
         public decimal Income
         {
-            get => order.Income;
-            set => order.Income = value;
+            get { return order.Income; }
+            set { order.Income = value; }
         }
 
         public string Note
         {
-            get => order.Note;
-            set => order.Note = value;
+            get { return order.Note; }
+            set { order.Note = value; }
         }
 
         public IEnumerable<Worker> Workers
         {
-            get => workers;
+            get { return workers; }
         }
 
         public IEnumerable<Worker> SelectedWorkers
         {
-            get => workers;
-            set => selectedWorkers = value;
+            get { return workers; }
+            set { selectedWorkers = value; }
         }
         #endregion
     }

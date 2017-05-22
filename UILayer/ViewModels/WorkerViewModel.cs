@@ -73,13 +73,13 @@ namespace UILayer.ViewModels
 
         public ICommand AddWorkerCommand
         {
-            get => addWorkerCommand;
+            get { return addWorkerCommand; }
         }
 
         public string NewWorkerName
         {
-            get => newWorkerName;
-            set => newWorkerName = value;
+            get { return newWorkerName; }
+            set { newWorkerName = value; }
         }
         #endregion
 
@@ -92,12 +92,12 @@ namespace UILayer.ViewModels
 
         public IEnumerable<Worker> Workers
         {
-            get => workers;
+            get { return workers; }
         } 
 
         public Worker SelectedWorker
         {
-            get => selectedWorker;
+            get { return selectedWorker; }
             set
             {
                 if (value != null)
@@ -164,7 +164,7 @@ namespace UILayer.ViewModels
 
         public DateTime FromDate
         {
-            get => fromDate;
+            get { return fromDate; }
             set
             {
                 fromDate = value;
@@ -174,7 +174,7 @@ namespace UILayer.ViewModels
 
         public DateTime ToDate
         {
-            get => toDate;
+            get { return toDate; }
             set
             {
                 toDate = value;
@@ -184,33 +184,33 @@ namespace UILayer.ViewModels
 
         public string DoneOrders
         {
-            get => doneOrders.ToString();
+            get { return doneOrders.ToString(); }
         }
 
         public string ActiveOrders
         {
-            get => activeOrders.ToString();
+            get { return activeOrders.ToString(); }
         }
 
         public string OrdersIncome
         {
-            get => ordersIncome.ToString();
+            get { return ordersIncome.ToString(); }
         }
 
         public string SelectedWorkerNewName
         {
-            get => SelectedWorker.Name;
-            set => SelectedWorker.Name = value;
+            get { return SelectedWorker.Name; }
+            set { SelectedWorker.Name = value; }
         }
 
         public ICommand UpdateWorkerCommand
         {
-            get => updateWorkerCommand;
+            get { return updateWorkerCommand; }
         }
 
         public ICommand DeleteWorkerCommand
         {
-            get => deleteWorkerCommand;
+            get { return deleteWorkerCommand; }
         }
         #endregion
     }

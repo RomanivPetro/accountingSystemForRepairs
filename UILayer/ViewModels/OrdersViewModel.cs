@@ -82,28 +82,28 @@ namespace UILayer.ViewModels
 
         public ICommand FindByPhoneCommand
         {
-            get => findByPhoneCommand;
+            get { return findByPhoneCommand; }
         }
 
         public ICommand UpdateOrderCommand
         {
-            get => updateOrderCommand;
+            get { return updateOrderCommand; }
         }
 
         public ObservableCollection<Order> Orders
         {
-            get => orders;
+            get { return orders; }
         }
 
         public string PhoneNumber
         {
-            get => phoneNumber;
-            set => phoneNumber = value;
+            get { return phoneNumber; }
+            set { phoneNumber = value; }
         }
 
         public Order SelectedOrder
         {
-            get => selectedOrder;
+            get { return selectedOrder; }
             set
             {
                 selectedOrder = value;
@@ -119,43 +119,43 @@ namespace UILayer.ViewModels
 
         public string SelectedOrderPhone
         {
-            get => selectedOrder?.PhoneNumber;
-            set => selectedOrder.PhoneNumber = value;
+            get { return selectedOrder?.PhoneNumber; }
+            set { selectedOrder.PhoneNumber = value; }
         }
 
         public decimal? SelectedOrderCost
         {
-            get => selectedOrder?.Cost;
-            set => selectedOrder.Cost = (decimal)value;
+            get { return selectedOrder?.Cost; }
+            set { selectedOrder.Cost = (decimal)value; }
         }
 
         public decimal? SelectedOrderIncome
         {
-            get => selectedOrder?.Income;
-            set => selectedOrder.Income = (decimal)value;
+            get { return selectedOrder?.Income; }
+            set { selectedOrder.Income = (decimal)value; }
         }
 
         public DateTime SelectedOrderReceptionDate
         {
-            get => selectedOrder == null ? DateTime.Now : selectedOrder.ReceptionDate;
-            set => selectedOrder.ReceptionDate = value;
+            get { return selectedOrder == null ? DateTime.Now : selectedOrder.ReceptionDate; }
+            set { selectedOrder.ReceptionDate = value; }
         }
 
         public DateTime? SelectedOrderGivingDate
         {
-            get => selectedOrder?.GivingDate;
-            set => selectedOrder.GivingDate = value;
+            get { return selectedOrder?.GivingDate; }
+            set { selectedOrder.GivingDate = value; }
         }
 
         public string SelectedOrderNote
         {
-            get => selectedOrder?.Note;
-            set => selectedOrder.Note = value;
+            get { return selectedOrder?.Note; }
+            set { selectedOrder.Note = value; }
         }
 
         public IEnumerable<string> Workers
         {
-            get => selectedOrder?.Worker.Select(w => w.Name);
+            get { return selectedOrder?.Worker.Select(w => w.Name); }
         }
     }
 }

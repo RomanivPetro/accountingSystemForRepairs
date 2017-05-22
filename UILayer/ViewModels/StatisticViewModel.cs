@@ -51,25 +51,25 @@ namespace UILayer.ViewModels
 
         public ICommand AddSpendingCommand
         {
-            get => addSpendinfCommand;
+            get { return addSpendinfCommand; }
         }
 
         public string Descriprtion
         {
-            get => spending.Description;
-            set => spending.Description = value;
+            get { return spending.Description; }
+            set { spending.Description = value; }
         }
 
         public decimal Cost
         {
-            get => spending.Cost;
-            set => spending.Cost = value;
+            get { return spending.Cost; }
+            set { spending.Cost = value; }
         }
 
         public DateTime Date
         {
-            get => spending.Date;
-            set => spending.Date = value;
+            get { return spending.Date; }
+            set { spending.Date = value; }
         }
         #endregion
 
@@ -95,7 +95,7 @@ namespace UILayer.ViewModels
 
         public DateTime FromDate
         {
-            get => fromDate;
+            get { return fromDate; }
             set
             {
                 fromDate = value;
@@ -105,7 +105,7 @@ namespace UILayer.ViewModels
 
         public DateTime ToDate
         {
-            get => toDate;
+            get { return toDate; }
             set
             {
                 toDate = value;
