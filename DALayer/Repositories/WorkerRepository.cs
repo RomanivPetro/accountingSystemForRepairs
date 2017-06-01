@@ -14,7 +14,7 @@ namespace DALayer.Repositories
         {
             this.context = context;
         }
-
+        // remove this method. Use unitOfWork.Save()
         private void Save()
         {
             context.SaveChanges();
