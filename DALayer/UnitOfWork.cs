@@ -60,6 +60,12 @@ namespace DALayer
                 return spendingRepository;
             }
         }
+        
+        // use this method to commit changes
+        public void Save()
+        {
+            context.SaveChanges();
+        }
 
         #region IDisposable Support
         private bool disposedValue = false; // To detect redundant calls
